@@ -7,4 +7,9 @@ class SessionsController < ApplicationController
       render json: { error: 'Email ou Senha inválidos!!' }, status: :unauthorized
     end
   end
+
+  def destroy
+    reset_session
+    render json: { message: 'Sessão encerrada com sucesso' }, status: :ok
+  end
 end

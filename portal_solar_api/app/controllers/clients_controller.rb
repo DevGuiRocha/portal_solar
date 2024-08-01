@@ -30,8 +30,12 @@ class ClientsController < ApplicationController
   end
 
   def destroy
-    @client.destroy
-    head :no_content
+    client = Client.find(params[:id])
+    if client.destroy
+      render json: { message: 'Cliente deletado com sucesso' }, status: :ok
+    else
+      render json: { error: 'Erro ao deletar o cliente' }, status: :unprocessable_entity
+    end
   end
 
   private
