@@ -1,7 +1,8 @@
 // pages/login.js
 import { useState } from 'react';
 import { useRouter } from 'next/router';
-import Navbar from '../components/Navbar'
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -38,18 +39,33 @@ const Login = () => {
   return (
     <div>
       <Navbar />
-      <h1>Acesso ao Sistema</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Email:
-          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-        </label>
-        <label>
-          Senha:
-          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-        </label>
-        <button type="submit">Login</button>
-      </form>
+      <div className="login-container">
+        <div className="login-box">
+          <h1>Acesso ao Sistema</h1>
+          <form onSubmit={handleSubmit}>
+            <label>
+              Email:
+              <input 
+                type="email" 
+                value={email} 
+                onChange={(e) => setEmail(e.target.value)} 
+                required 
+              />
+            </label>
+            <label>
+              Senha:
+              <input 
+                type="password" 
+                value={password} 
+                onChange={(e) => setPassword(e.target.value)} 
+                required 
+              />
+            </label>
+            <button type="submit">Login</button>
+          </form>
+        </div>
+      </div>
+      <Footer />
     </div>
   );
 };

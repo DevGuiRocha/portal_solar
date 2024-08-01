@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
-import Navbar from '../../components/Navbar'
+import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
 
 const ClientProfile = () => {
   const router = useRouter();
@@ -73,29 +74,40 @@ const ClientProfile = () => {
   return (
     <div>
       <Navbar />
-      <h2>Perfil do Cliente</h2>
-      <label>
-        Nome:
-        <input
-          type="text"
-          value={client.name}
-          onChange={e => setClient({ ...client, name: e.target.value })}
-        />
-      </label>
-      <label>
-        Email:
-        <input type="text" value={client.email} disabled />
-      </label>
-      <label>
-        Senha:
-        <input
-          type="password"
-          value={client.password}
-          onChange={e => setClient({ ...client, password: e.target.value })}
-        />
-      </label>
-      <button onClick={handleUpdate}>Atualizar Perfil</button>
-      <button onClick={handleDeleteAccount}>Deletar Conta</button>
+      <div className="perfil-container">
+        <div className="perfil-box">
+          <h2>Perfil do Cliente</h2>
+          <form>
+            <label>
+              Nome:
+              <input
+                type="text"
+                value={client.name}
+                onChange={e => setClient({ ...client, name: e.target.value })}
+              />
+            </label>
+            <label>
+              Email:
+              <input type="text" value={client.email} disabled />
+            </label>
+            <label>
+              Senha:
+              <input
+                type="password"
+                value={client.password}
+                onChange={e => setClient({ ...client, password: e.target.value })}
+              />
+            </label>
+            <button type="button" className="btn-update" onClick={handleUpdate}>
+              Atualizar Perfil
+            </button>
+            <button type="button" className="btn-delete" onClick={handleDeleteAccount}>
+              Deletar Conta
+            </button>
+          </form>
+        </div>
+      </div>
+      <Footer />
     </div>
   );
 };

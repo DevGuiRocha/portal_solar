@@ -1,0 +1,345 @@
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #393939;
+    color: white;
+}
+
+.navbar .nav-left,
+.navbar .nav-right {
+    display: flex;
+    gap: 15px; /* Espaço mínimo entre os itens */
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-family: 'Arial', sans-serif; /* Ou qualquer fonte de sua escolha */
+    font-size: 16px; /* Tamanho da fonte dos links */
+}
+
+.navbar a:hover {
+    text-decoration: underline; /* Adiciona um efeito ao passar o mouse */
+}
+
+.navbar button {
+    background: none;
+    border: none;
+    color: white;
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 5px 10px;
+}
+
+.navbar button:hover {
+    text-decoration: underline; /* Adiciona um efeito ao passar o mouse */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4; /* Cor de fundo neutra */
+    color: #333; /* Cor do texto principal */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Garante que o conteúdo ocupe pelo menos a altura da tela */
+}
+
+/* Estilo para o conteúdo principal */
+main {
+    flex: 1; /* Faz com que o main ocupe o espaço restante disponível */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza horizontalmente */
+    justify-content: center; /* Centraliza verticalmente */
+    text-align: center;
+    padding: 20px;
+}
+
+h1, p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilo para o footer */
+.footer {
+    background-color: #393939; /* Cor do fundo do footer igual à navbar */
+    color: #ff9c00; /* Cor do texto no footer */
+    text-align: center;
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh; /* Ocupa 80% da altura da tela */
+}
+
+.login-box {
+    background-color: #fff; /* Fundo branco para o formulário */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Efeito de sombra para destacar o formulário */
+    max-width: 400px;
+    width: 100%;
+}
+
+/* Estilo para o título do formulário */
+.login-box h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333; /* Cor do texto */
+    text-align: center;
+}
+
+/* Estilo para os labels */
+.login-box label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Estilo para os inputs */
+.login-box input {
+    width: calc(100% - 20px); /* Largura completa com padding */
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* Estilo para o botão de login */
+.login-box button {
+    width: 100%;
+    padding: 10px;
+    background-color: #ff9c00; /* Cor de fundo do botão */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-box button:hover {
+    background-color: #e68a00; /* Cor de fundo ao passar o mouse */
+}
+
+.cadastro-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh; /* Ocupa 80% da altura da tela */
+}
+
+.cadastro-box {
+    background-color: #fff; /* Fundo branco para o formulário */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Efeito de sombra para destacar o formulário */
+    max-width: 400px;
+    width: 100%;
+}
+
+/* Estilo para o título do formulário */
+.cadastro-box h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333; /* Cor do texto */
+    text-align: center;
+}
+
+/* Estilo para os labels */
+.cadastro-box label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Estilo para os inputs */
+.cadastro-box input {
+    width: calc(100% - 20px); /* Largura completa com padding */
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* Estilo para o botão de cadastro */
+.cadastro-box button {
+    width: 100%;
+    padding: 10px;
+    background-color: #ff9c00; /* Cor de fundo do botão */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cadastro-box button:hover {
+    background-color: #e68a00; /* Cor de fundo ao passar o mouse */ 
+}
+
+.perfil-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh; /* Ocupa 80% da altura da tela */
+    flex-direction: column;
+}
+
+.perfil-box {
+    background-color: #fff; /* Fundo branco */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+    max-width: 400px;
+    width: 100%;
+}
+
+/* Estilo para o título */
+.perfil-box h2 {
+    margin-bottom: 20px;
+    font-size: 22px;
+    color: #333;
+    text-align: center;
+}
+
+/* Estilo para os labels */
+.perfil-box label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Estilo para os inputs */
+.perfil-box input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* Estilo para o botão de atualizar */
+.perfil-box .btn-update {
+    width: 100%;
+    padding: 10px;
+    background-color: #4caf50; /* Cor verde */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 10px;
+}
+
+.perfil-box .btn-update:hover {
+    background-color: #45a049; /* Tom mais escuro de verde */
+}
+
+/* Estilo para o botão de deletar */
+.perfil-box .btn-delete {
+    width: 100%;
+    padding: 10px;
+    background-color: #f44336; /* Cor vermelha */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.perfil-box .btn-delete:hover {
+    background-color: #d32f2f; /* Tom mais escuro de vermelho */
+}
+
+.simulation-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    min-height: 80vh; /* Ocupa 80% da altura da tela */
+}
+
+.simulation-form {
+    background-color: #fff; /* Fundo branco para o formulário */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Efeito de sombra */
+    max-width: 400px;
+    width: 100%;
+    text-align: center; /* Centraliza o texto no formulário */
+    margin-bottom: 30px; /* Espaço abaixo do formulário */
+}
+
+.simulation-form input {
+    width: calc(100% - 20px); /* Largura completa com padding */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-bottom: 20px; /* Espaço abaixo do input */
+}
+
+.simulation-form button {
+    padding: 10px;
+    background-color: #ff9c00; /* Cor do botão */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.simulation-form button:hover {
+    background-color: #e68a00; /* Tom mais escuro ao passar o mouse */
+}
+
+/* Estilo para a listagem de simulações */
+.simulations-list {
+    list-style: none; /* Remove os marcadores da lista */
+    padding: 0;
+}
+
+.simulations-list li {
+    background-color: #fff; /* Fundo branco para cada item da lista */
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra leve */
+    margin-bottom: 15px; /* Espaço abaixo de cada item da lista */
+}
+
+.simulations-list p {
+    margin: 5px 0;
+    color: #333; /* Cor do texto */
+}
+
+.simulations-list a {
+    color: #ff9c00; /* Cor do link */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.simulations-list a:hover {
+    text-decoration: underline; /* Sublinhado ao passar o mouse */
+}

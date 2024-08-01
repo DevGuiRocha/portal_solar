@@ -22,14 +22,15 @@ const Navbar = () => {
   };
 
   return (
-    <nav style={{ display: 'flex', justifyContent: 'space-between', padding: '10px' }}>
-      <div>
+    <nav className="navbar">
+      <div className="nav-left">
         <Link href="/">Home</Link>
         <Link href="/clientes/cadastro">Cadastro</Link>
       </div>
-      <div>
+      <div className="nav-right">
         {loggedIn ? (
           <>
+            <Link href="/simulations/new">Simulações</Link>
             <Link href={`/clientes/${JSON.parse(localStorage.getItem('client')).id}`}>{clientName}</Link>
             <button onClick={handleLogout}>Logout</button>
           </>

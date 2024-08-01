@@ -1,7 +1,8 @@
 // pages/index.js
 import Head from 'next/head';
 import Link from 'next/link';
-import Navbar from '../components/Navbar'
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 export default function Home() {
   return (
@@ -20,9 +21,7 @@ export default function Home() {
         {/* <Link href="/clientes">Ver Clientes</Link> */}
       </main>
 
-      <footer>
-        <p>© 2024 Portal Solar</p>
-      </footer>
+      <Footer />
     </div>
   );
 }
