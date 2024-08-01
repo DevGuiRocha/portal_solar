@@ -7,6 +7,7 @@ class ClientsController < ApplicationController
   end
 
   def show
+    @client = Client.find(params[:id])
     render json: @client
   end
 
@@ -20,8 +21,9 @@ class ClientsController < ApplicationController
   end
 
   def update
+    @client = Client.find(params[:id])
     if @client.update(client_params)
-      render json: @client
+      render json: @client, status: :ok
     else
       render json: @client.errors, status: :unprocessable_entity
     end
