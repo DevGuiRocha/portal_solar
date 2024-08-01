@@ -11,6 +11,7 @@ class SimulationsController < ApplicationController
     power_needed = params[:bill_value].to_f / 94.5
 
     response = HTTParty.get('https://my.api.mockaroo.com/geradores?key=630e7920&page=1&page_size=10')
+    puts response.parsed_response
     generators = response.parsed_response
 
     recommended_generators = generators.select do |g|
@@ -30,8 +31,8 @@ class SimulationsController < ApplicationController
   end
 
   def index
-    simulations = @client.simulations
-    render json: { simulations: simulations }
+    @simulations = @client.simulations
+    render json: @simulation
   end
 
   private
@@ -45,22 +46,6 @@ class SimulationsController < ApplicationController
       render json: { error: 'Você já atingiu o limite de 5 simulações para hoje' }, status: :forbidden
     end
   end
-
-  # def generate_pdf(client, generators)
-  #   pdf = Prawn::Document.new
-  #   pdf.text "Relatório de Simulação de Energia"
-  #   pdf.text "Cliente: #{client.name}"
-  #   pdf.text "Email: #{client.email}"
-  #   pdf.text "Simulações:"
-
-  #   generators.each_with_index do |generator, index|
-  #     pdf.text "#{index + 1}. Modelo: #{generator['model']}, Potência: #{generator['power_output']} kWp"
-  #   end
-
-  #   file_path = Rails.root.join('public', 'simulations', "simulation_#{client.id}_#{Time.now.to_i}.pdf")
-  #   pdf.render_file(file_path)
-  #   file_path.to_s
-  # end
 
   def generate_pdf(client, generators)
     Prawn::Fonts::AFM.hide_m17n_warning = true
