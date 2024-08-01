@@ -11,7 +11,6 @@ class SimulationsController < ApplicationController
     power_needed = params[:bill_value].to_f / 94.5
 
     response = HTTParty.get('https://my.api.mockaroo.com/geradores?key=630e7920&page=1&page_size=10')
-    puts response.parsed_response
     generators = response.parsed_response
 
     recommended_generators = generators.select do |g|
