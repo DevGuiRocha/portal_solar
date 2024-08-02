@@ -7,7 +7,6 @@ const NewSimulation = () => {
     const [billValue, setBillValue] = useState('');
     const [simulations, setSimulations] = useState([]);
     const router = useRouter();
-    const { clientId } = router.query;
     const client = JSON.parse(localStorage.getItem('client'));
 
     const handleSimulation = async () => {
@@ -25,6 +24,7 @@ const NewSimulation = () => {
         if (response.ok) {
             const data = await response.json();
             alert('Simulação realizada com sucesso!');
+            setSimulations(prevSimulations => [...prevSimulations, data.simulation]);
             // Redirecionar ou mostrar resultados
         } else {
             alert('Erro ao realizar simulação.');
@@ -39,7 +39,7 @@ const NewSimulation = () => {
     if (client.id) {
       fetch(`/clients/${client.id}/simulations`)
         .then(response => response.json())
-        .then(data => setSimulations(data))
+        .then(data => setSimulations(data.simulations))
         .catch(error => console.error('Erro ao carregar simulações:', error));
     }
   }, [client.id]);
@@ -63,7 +63,7 @@ const NewSimulation = () => {
           <h1>Simulações</h1>
           <ul className="simulations-list">
             {simulations.map((simulation) => (
-              <li key={simulation.clientId}>
+              <li key={simulation.client_id}>
                 <p>Data: {new Date(simulation.created_at).toLocaleString()}</p>
                 <p>Potência Necessária: {simulation.power_needed} kWp</p>
                 <a href={simulation.pdf_url} target="_blank" rel="noopener noreferrer">
