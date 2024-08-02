@@ -20,10 +20,13 @@ class SimulationsController < ApplicationController
 
     pdf = generate_pdf(@client, recommended_generators)
 
+    pdf_url_remove = Rails.root.join('public').to_s
+    new_pdf = pdf.gsub(pdf_url_remove, '')
+
     simulation = @client.simulations.create!(
       bill_value: params[:bill_value],
       recommended_generators: recommended_generators,
-      pdf: pdf
+      pdf: new_pdf
     )
 
     render json: { simulation: simulation }, status: :created
