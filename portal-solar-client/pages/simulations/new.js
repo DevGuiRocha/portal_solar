@@ -65,8 +65,7 @@ const NewSimulation = () => {
             {simulations.map((simulation) => (
               <li key={simulation.client_id}>
                 <p>Data: {new Date(simulation.created_at).toLocaleString()}</p>
-                <p>Potência Necessária: {simulation.power_needed} kWp</p>
-                <a href={simulation.pdf_url} target="_blank" rel="noopener noreferrer">
+                <a href={`http://localhost:3000/${simulation.pdf}`} target="_blank" rel="noopener noreferrer">
                   Baixar PDF
                 </a>
               </li>
