@@ -11,11 +11,11 @@ class SimulationsController < ApplicationController
     power_needed = params[:bill_value].to_f / 94.5
 
     response = HTTParty.get('https://my.api.mockaroo.com/geradores?key=630e7920&page=1&page_size=10')
-    generators = response.parsed_response
+    generators = response.parsed_response['items']
 
     recommended_generators = generators.select do |g|
-      power_output = g['power_output']
-      power_output && power_output >= power_needed
+      power_output = g['power']
+      power_output && power_output.to_f >= power_needed
     end
 
     pdf = generate_pdf(@client, recommended_generators)
@@ -62,7 +62,7 @@ class SimulationsController < ApplicationController
       pdf.move_down 10
       pdf.text "Geradores Recomendados:", size: 20, style: :bold
       generators.each do |generator|
-        pdf.text "Gerador: #{generator['name']} - Potência: #{generator['power_output']} kWp"
+        pdf.text "Gerador: #{generator['name']} - Potência: #{generator['power']} kWp"
       end
     end
   
